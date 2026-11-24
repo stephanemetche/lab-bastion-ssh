@@ -1,0 +1,23 @@
+# %USERPROFILE%\.ssh\config (Windows) ou ~/.ssh/config (Linux/Mac) — poste d'administration
+# La clé privée bastion_key n'est JAMAIS publiée dans ce dépôt.
+
+Host bastion
+    HostName 192.168.60.10
+    User stephane
+    IdentityFile ~/.ssh/bastion_key
+    IdentitiesOnly yes
+    ServerAliveInterval 60
+
+Host web
+    HostName 10.10.10.10
+    User stephane
+    IdentityFile ~/.ssh/bastion_key
+    IdentitiesOnly yes
+    ProxyJump bastion
+
+Host db
+    HostName 10.10.10.20
+    User stephane
+    IdentityFile ~/.ssh/bastion_key
+    IdentitiesOnly yes
+    ProxyJump bastion

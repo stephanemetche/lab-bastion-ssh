@@ -1,0 +1,10 @@
+# /etc/network/interfaces — lab-web01
+source /etc/network/interfaces.d/*
+
+auto lo
+iface lo inet loopback
+
+auto ens32
+iface ens32 inet static
+    address 10.10.10.10/24
+    gateway 10.10.10.1

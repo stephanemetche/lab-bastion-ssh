@@ -1,0 +1,17 @@
+# /etc/network/interfaces — lab-bastion01
+source /etc/network/interfaces.d/*
+
+# Boucle locale
+auto lo
+iface lo inet loopback
+
+# Porte côté rue : réseau NAT VMnet8 (PC admin + internet)
+auto ens32
+iface ens32 inet static
+    address 192.168.60.10/24
+    gateway 192.168.60.2
+
+# Porte côté cour : réseau interne VMnet2 (pas de gateway ici)
+auto ens34
+iface ens34 inet static
+    address 10.10.10.1/24

@@ -1,0 +1,9 @@
+# Ne jamais publier de clés privées ni de secrets
+*_key
+!*_key.pub
+id_*
+!id_*.pub
+*.pem
+*.key
+.env
+secrets/
